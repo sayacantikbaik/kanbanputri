@@ -116,6 +116,25 @@ class TaskController extends Controller
         $tasks = $this->tasks;
 
         return view('tasks.index', ['tasks' => $tasks]);
+        $pageTitle = 'Task List'; // Ditambahkan
+
+        $tasks = $this->tasks;
+    
+        return view('tasks.index', [
+    
+            'pageTitle' => $pageTitle, //Ditambahkan
+    
+            'tasks' => $tasks,
+    
+        ]);
+    }
+    public function edit($id)
+
+    {
+        $title = 'Edit Task';
+        $task = $this->tasks[$id - 1];
+
+        return view('tasks.edit', ['pageTitle'=>$title,'task' => $task]);
 
     }
 
